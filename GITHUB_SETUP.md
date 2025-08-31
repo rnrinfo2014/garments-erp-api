@@ -83,7 +83,7 @@ After pushing, you should see all files on GitHub at:
 ### 1. Update Repository Settings
 - Add repository description and topics
 - Enable issues and wiki if needed
-- Set up branch protection rules for main branch
+- **Set up branch protection rules for main branch** - See [BRANCH_PROTECTION_GUIDE.md](./BRANCH_PROTECTION_GUIDE.md) for detailed instructions
 
 ### 2. Add Collaborators
 - Go to Settings → Manage access

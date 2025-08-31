@@ -1,0 +1,36 @@
+# Global owners for everything - replace with actual GitHub usernames
+* @rnrinfo2014
+
+# Python code ownership
+*.py @rnrinfo2014
+models/ @rnrinfo2014
+routes/ @rnrinfo2014
+schemas/ @rnrinfo2014
+
+# Configuration and deployment files
+*.yml @rnrinfo2014
+*.yaml @rnrinfo2014
+docker-compose.yml @rnrinfo2014
+Dockerfile @rnrinfo2014
+nginx.conf @rnrinfo2014
+deploy.sh @rnrinfo2014
+deploy.bat @rnrinfo2014
+
+# Documentation
+*.md @rnrinfo2014
+
+# Database and migration scripts
+scripts/migration/ @rnrinfo2014
+migrate_*.py @rnrinfo2014
+create_*.py @rnrinfo2014
+
+# Security and configuration
+.env.example @rnrinfo2014
+config/ @rnrinfo2014
+auth.py @rnrinfo2014
+
+# Dependencies
+requirements*.txt @rnrinfo2014
+
+# GitHub workflows and settings
+.github/ @rnrinfo2014
