@@ -202,6 +202,37 @@ git pull origin main
 docker-compose up -d --build
 ```
 
+## 🛡️ Development Workflow & Branch Protection
+
+This repository uses branch protection to ensure code quality and prevent breaking changes to production.
+
+### Development Process
+1. **Create feature branch**: `git checkout -b feature/your-feature`
+2. **Make changes and commit**: Follow conventional commit messages
+3. **Push feature branch**: `git push origin feature/your-feature`
+4. **Create Pull Request**: All changes must go through PR review
+5. **Pass status checks**: Automated tests and linting must pass
+6. **Get approval**: Required reviews before merging to main
+7. **Merge**: Only after approval and passing checks
+
+### Branch Protection Rules
+- ✅ **No direct pushes** to main branch
+- ✅ **Required status checks**: Linting and tests must pass
+- ✅ **Required reviews**: At least 1 approval needed
+- ✅ **Up-to-date branches**: Must be current with main
+- ✅ **No force pushes**: Prevents history rewriting
+
+📖 **Detailed Setup Guide**: See [BRANCH_PROTECTION_GUIDE.md](./BRANCH_PROTECTION_GUIDE.md)
+
+### Automated Checks
+Every PR automatically runs:
+- **Python linting** (pylint, flake8)
+- **Code formatting** check (black)
+- **Security scanning** (bandit)
+- **Dependency vulnerabilities** (safety)
+- **Docker build** validation
+- **Configuration** validation
+
 ## 📞 Support
 
 ### Health Monitoring
