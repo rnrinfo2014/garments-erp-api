@@ -50,8 +50,8 @@ class LedgerTransactionBase(BaseModel):
     description: str = Field(..., max_length=500, description="Transaction description")
     reference_type: Optional[ReferenceType] = Field(None, description="Type of source document")
     reference_id: Optional[str] = Field(None, max_length=50, description="Source document ID")
-    debit_amount: Decimal = Field(default=Decimal('0.00'), ge=0, decimal_places=2, description="Debit amount")
-    credit_amount: Decimal = Field(default=Decimal('0.00'), ge=0, decimal_places=2, description="Credit amount")
+    debit_amount: Decimal = Field(default=Decimal('0.00'), ge=0, description="Debit amount")
+    credit_amount: Decimal = Field(default=Decimal('0.00'), ge=0, description="Credit amount")
     voucher_type: VoucherType = Field(..., description="Type of voucher")
     voucher_number: Optional[str] = Field(None, max_length=50, description="Voucher number")
     party_type: Optional[PartyType] = Field(None, description="Type of party involved")
@@ -90,8 +90,8 @@ class LedgerTransactionUpdate(BaseModel):
     description: Optional[str] = Field(None, max_length=500)
     reference_type: Optional[ReferenceType] = None
     reference_id: Optional[str] = Field(None, max_length=50)
-    debit_amount: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
-    credit_amount: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
+    debit_amount: Optional[Decimal] = Field(None, ge=0)
+    credit_amount: Optional[Decimal] = Field(None, ge=0)
     voucher_type: Optional[VoucherType] = None
     voucher_number: Optional[str] = Field(None, max_length=50)
     party_type: Optional[PartyType] = None
@@ -126,8 +126,8 @@ class TransactionBatchBase(BaseModel):
     description: str = Field(..., max_length=500, description="Batch description")
     reference_type: Optional[ReferenceType] = Field(None, description="Source of batch")
     reference_id: Optional[str] = Field(None, max_length=50, description="Reference ID")
-    total_debit: Decimal = Field(default=Decimal('0.00'), ge=0, decimal_places=2)
-    total_credit: Decimal = Field(default=Decimal('0.00'), ge=0, decimal_places=2)
+    total_debit: Decimal = Field(default=Decimal('0.00'), ge=0)
+    total_credit: Decimal = Field(default=Decimal('0.00'), ge=0)
     is_balanced: bool = Field(default=False, description="Double-entry balance status")
     is_posted: bool = Field(default=False, description="Posted status")
     is_active: bool = Field(default=True, description="Active status")
@@ -143,8 +143,8 @@ class TransactionBatchUpdate(BaseModel):
     description: Optional[str] = Field(None, max_length=500)
     reference_type: Optional[ReferenceType] = None
     reference_id: Optional[str] = Field(None, max_length=50)
-    total_debit: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
-    total_credit: Optional[Decimal] = Field(None, ge=0, decimal_places=2)
+    total_debit: Optional[Decimal] = Field(None, ge=0)
+    total_credit: Optional[Decimal] = Field(None, ge=0)
     is_balanced: Optional[bool] = None
     is_posted: Optional[bool] = None
     is_active: Optional[bool] = None
@@ -206,9 +206,9 @@ class AccountBalanceResponse(BaseModel):
     account_code: str
     account_name: str
     account_type: str
-    total_debits: Decimal = Field(..., decimal_places=2)
-    total_credits: Decimal = Field(..., decimal_places=2)
-    net_balance: Decimal = Field(..., decimal_places=2)
+    total_debits: Decimal = Field(...)
+    total_credits: Decimal = Field(...)
+    net_balance: Decimal = Field(...)
     transaction_count: int
     last_transaction_date: Optional[datetime] = None
 
@@ -219,10 +219,10 @@ class AccountBalanceResponse(BaseModel):
 class LedgerSummaryResponse(BaseModel):
     account_code: str
     account_name: str
-    opening_balance: Decimal = Field(..., decimal_places=2)
-    total_debits: Decimal = Field(..., decimal_places=2)
-    total_credits: Decimal = Field(..., decimal_places=2)
-    closing_balance: Decimal = Field(..., decimal_places=2)
+    opening_balance: Decimal = Field(...)
+    total_debits: Decimal = Field(...)
+    total_credits: Decimal = Field(...)
+    closing_balance: Decimal = Field(...)
     period_from: datetime
     period_to: datetime
 
